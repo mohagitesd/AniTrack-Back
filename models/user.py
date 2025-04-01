@@ -1,11 +1,10 @@
-from sqlalchemy import Column, Integer, String, DateTime, func
-from core.database import Base
+from sqlmodel import SQLModel, Field
+from typing import Optional
+from datetime import datetime
 
-class User(Base):
-    __tablename__ = "users"
-
-    id = Column(Integer, primary_key=True, index=True)
-    username = Column(String, nullable=False, unique=True)
-    email = Column(String, nullable=False, unique=True)
-    hashed_password = Column(String, nullable=False)
-    created_at = Column(DateTime, server_default=func.now())
+class User(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    username: str
+    email: str
+    hashed_password: str
+    created_at: datetime = Field(default_factory=datetime.utcnow)

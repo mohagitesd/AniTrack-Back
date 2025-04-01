@@ -3,7 +3,20 @@ POST http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
-  "username": "otakufan",
-  "email": "otaku@example.com",
-  "password": "secret123"
+  "username": "gintokifan",
+  "email": "gintoki@example.com",
+  "password": "samouraï123"
 }
+
+### Connexion
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+
+{
+  "email": "gintoki@example.com",
+  "password": "samouraï123"
+}
+
+### Get current user
+GET http://localhost:8000/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTM1OTAzfQ.oJH22FQ32q0CyD0Lsinef_pjfzH3QK-Fx96qjK-pZW4

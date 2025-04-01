@@ -1,20 +1,15 @@
-from fastapi import FastAPI, Depends
-from sqlalchemy.orm import Session
-from core.database import SessionLocal
-from routers import auth
+from core.database import engine
+from sqlmodel import SQLModel
+from fastapi import FastAPI
+from models.user import User
+from routers import auth  # si tu as bien un fichier routers/auth.py
 
 app = FastAPI()
 
 app.include_router(auth.router)
 
-# Dependency to get the database session
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db 
-    finally:
-        db.close()
+# Crée les tables automatiquement au lancement
+SQLModel.metadata.create_all(engine)
 
-@app.get("/")
-def root(db: Session = Depends(get_db)):
-    return {"message": "Connexion a supabase reussie"}
+# Crée toutes les tables automatiquement au démarrage
+SQLModel.metadata.create_all(engine)
