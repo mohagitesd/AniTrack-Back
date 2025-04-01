@@ -1,0 +1,9 @@
+### Test inscription utilisateur
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+  "username": "otakufan",
+  "email": "otaku@example.com",
+  "password": "secret123"
+}
