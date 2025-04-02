@@ -7,6 +7,8 @@ from core.database import get_session
 from models.progress import Progress
 from models.rating import Rating
 from models.user import User
+from sqlalchemy.sql import func
+
 
 router = APIRouter(prefix="/works", tags=["works"])
 
@@ -29,6 +31,16 @@ async def get_work(
 
         is_followed = progress is not None
 
+        # moyenne des notes de l'oeuvre
+        average_rating = session.exec(
+            select(func.avg(Rating.rating)).where(
+                Rating.work_id == str(anilist_id)
+            )
+        ).one()
+
+        local_average_rating = round(average_rating, 2) if average_rating is not None else None
+
+
         # Vérifier si l'utilisateur a noté l'oeuvre
         rating = session.exec(
             select(Rating).where(
@@ -41,7 +53,8 @@ async def get_work(
             **work_data, ## Inclure toutes les données de l'oeuvre
             "is_followed": is_followed, 
             "user_rating": rating.rating if rating else None,
-            "user_review": rating.review if rating else None
+            "user_review": rating.review if rating else None,
+            "local_average_rating": local_average_rating,
         }
 
     except Exception as e:
