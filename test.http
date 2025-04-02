@@ -23,11 +23,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwI
 
 ### Ajouter ou mettre à jour une progression
 POST http://localhost:8000/user/progress
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTgzNjUzfQ.TkD9QAqaiPUaOPIkuWkoek8W3MeS8h4dW5EXGQvqR8c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
 Content-Type: application/json
 
 {
-  "work_id": "12345", 
+  "work_id": "11061", 
   "type": "anime",
   "status": "watching",
   "current_episode": 5,
@@ -42,22 +42,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwI
 DELETE http://localhost:8000/user/progress/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTgzNjUzfQ.TkD9QAqaiPUaOPIkuWkoek8W3MeS8h4dW5EXGQvqR8c
 
-### Ajouter une note
+### Ajouter une note et un avis
 POST http://localhost:8000/user/rating
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
 Content-Type: application/json
 
 {
-  "work_id": "12345",
+  "work_id": "11061",
   "rating": 8,
   "review": "Excellent manga, bonne narration"
 }
 
-### Récupérer mes notes
+### Récupérer mes notes et avis
 GET http://localhost:8000/user/rating
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
 
-### Modifier une note
+### Modifier une note et un avis
 PUT http://localhost:8000/user/rating/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
 Content-Type: application/json
@@ -71,3 +71,11 @@ Content-Type: application/json
 ### Supprimer une note
 DELETE http://localhost:8000/user/rating/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
+
+### Fiche oeuvre depuis Anilist
+GET http://localhost:8000/works/11061
+
+### Fiche oeuvre + progression
+GET http://localhost:8000/works/11061
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
+
