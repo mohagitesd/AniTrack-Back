@@ -19,4 +19,25 @@ Content-Type: application/json
 
 ### Get current user
 GET http://localhost:8000/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTM1OTAzfQ.oJH22FQ32q0CyD0Lsinef_pjfzH3QK-Fx96qjK-pZW4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTgzNjUzfQ.TkD9QAqaiPUaOPIkuWkoek8W3MeS8h4dW5EXGQvqR8c
+
+### Ajouter ou mettre à jour une progression
+POST http://localhost:8000/user/progress
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTgzNjUzfQ.TkD9QAqaiPUaOPIkuWkoek8W3MeS8h4dW5EXGQvqR8c
+Content-Type: application/json
+
+{
+  "work_id": "12345", 
+  "type": "anime",
+  "status": "watching",
+  "current_episode": 5,
+  "current_chapter": 0
+}
+
+### Récupérer la progression
+GET http://localhost:8000/user/progress
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTgzNjUzfQ.TkD9QAqaiPUaOPIkuWkoek8W3MeS8h4dW5EXGQvqR8c
+
+### Supprimer une progression
+DELETE http://localhost:8000/user/progress/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTgzNjUzfQ.TkD9QAqaiPUaOPIkuWkoek8W3MeS8h4dW5EXGQvqR8c
