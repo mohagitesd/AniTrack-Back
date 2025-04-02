@@ -41,3 +41,33 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwI
 ### Supprimer une progression
 DELETE http://localhost:8000/user/progress/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTgzNjUzfQ.TkD9QAqaiPUaOPIkuWkoek8W3MeS8h4dW5EXGQvqR8c
+
+### Ajouter une note
+POST http://localhost:8000/user/rating
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
+Content-Type: application/json
+
+{
+  "work_id": "12345",
+  "rating": 8,
+  "review": "Excellent manga, bonne narration"
+}
+
+### Récupérer mes notes
+GET http://localhost:8000/user/rating
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
+
+### Modifier une note
+PUT http://localhost:8000/user/rating/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
+Content-Type: application/json
+
+{
+  "work_id": "12345",
+  "rating": 9,
+  "review": "Encore meilleur à la relecture !"
+}
+
+### Supprimer une note
+DELETE http://localhost:8000/user/rating/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
