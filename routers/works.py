@@ -8,9 +8,25 @@ from models.progress import Progress
 from models.rating import Rating
 from models.user import User
 from sqlalchemy.sql import func
+from services.anilist import search_works
 
 
 router = APIRouter(prefix="/works", tags=["works"])
+
+@router.get("/search")
+async def search(
+    search: str = None,
+    type: str = None,
+    genre: str = None,
+    year: int = None,
+    status: str = None
+):
+    try:
+        results = await search_works(search, type, genre, year, status)
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erreur Anilist Search : {str(e)}")
+
 
 @router.get("/{anilist_id}")
 async def get_work(
@@ -59,3 +75,4 @@ async def get_work(
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erreur Anilist : {str(e)}")
+
