@@ -83,5 +83,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwI
 GET http://localhost:8000/works/11061
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTk1OTA0fQ.xQ0mPicOFpYpps3CxjwVoMMz1HMfN4_HE4_ksqPnC1A
 
-### Recherche d’animes d’action sortis en 2023
-GET http://localhost:8000/works/search?type=ANIME&genre=Action&status=FINISHED
+### Recherche d’animes et de mangas
+GET http://localhost:8000/works/search?type=ANIME

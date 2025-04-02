@@ -41,7 +41,7 @@ async def get_work_details(anilist_id: str):
         return response.json()["data"]["Media"]
 
 # fonction pour rechercher des oeuvres
-async def search_works(search=None, type=None, genre=None, status=None, year=None):
+async def search_works(search=None, type=None, genre=None, status=None):
     query = """
     query ($search: String, $type: MediaType, $genre: String, $status: MediaStatus) {
       Page(perPage: 20) {
@@ -74,7 +74,6 @@ async def search_works(search=None, type=None, genre=None, status=None, year=Non
         "search": search,
         "type": type,
         "genre": genre,
-        "year": year,
         "status": status
     }
 

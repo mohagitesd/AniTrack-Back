@@ -22,7 +22,7 @@ async def search(
     status: str = None
 ):
     try:
-        results = await search_works(search, type, genre, year, status)
+        results = await search_works(search, type, genre, status)
         return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erreur Anilist Search : {str(e)}")
