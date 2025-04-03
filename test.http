@@ -8,6 +8,8 @@ Content-Type: application/json
   "password": "samouraï123"
 }
 
+
+
 ### Connexion
 POST http://localhost:8000/auth/login
 Content-Type: application/json
@@ -77,7 +79,7 @@ GET http://localhost:8000/works/11061
 
 ### Fiche oeuvre + progression
 GET http://localhost:8000/works/11061
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTg4MjYzfQ.SAfcI8OT1TRgah3oVWXT0wbyxF6QX5vnTdZixYvIzUg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNzExNDAzfQ.il8XJpEdygaNL8eXrInQn9Xb1rTLHrweEWjiCTcNdX0
 
 ### Moyenne des notes
 GET http://localhost:8000/works/11061
@@ -92,4 +94,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwI
 
 ### Get recommendations limited to 4
 GET http://localhost:8000/recommend
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNjY4Nzg4fQ.NAXeutwJRWNA8-bEtzo0nK3pbrzLittzaCh5zb3EFl0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNjc1NDAzfQ.nJ4jEpgtGx3cOrmekWqNJP8nnlVNQTZMWJQuoI3U2Lc
+
+### Get recommendations with a specific genre
+GET http://localhost:8000/works/search?search=naruto&type=ANIME&genre=action
+
+### toute les ouvres
+GET http://localhost:8000/works/all-works
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNzExNDAzfQ.il8XJpEdygaNL8eXrInQn9Xb1rTLHrweEWjiCTcNdX0

@@ -15,6 +15,10 @@ async def get_work_details(anilist_id: str):
           native
         }
         type
+        coverImage {
+          large
+          medium
+        }
         format
         status
         description
