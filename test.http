@@ -36,7 +36,7 @@ Content-Type: application/json
 
 ### Récupérer la progression
 GET http://localhost:8000/user/progress
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTgzNjUzfQ.TkD9QAqaiPUaOPIkuWkoek8W3MeS8h4dW5EXGQvqR8c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNjA4MDk2fQ.HzpiLAPiCS-MUY7_GUEh8xMyKQj7gjz-RsZPb6oTRaU
 
 ### Supprimer une progression
 DELETE http://localhost:8000/user/progress/1
@@ -84,4 +84,12 @@ GET http://localhost:8000/works/11061
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNTk1OTA0fQ.xQ0mPicOFpYpps3CxjwVoMMz1HMfN4_HE4_ksqPnC1A
 
 ### Recherche d’animes et de mangas
-GET http://localhost:8000/works/search?type=ANIME
+GET http://localhost:8000/works/search?search=Bleach&genre=action
+
+### Liste des œuvres suivies par l'utilisateur connecté
+GET http://localhost:8000/user/list
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNjA4MDk2fQ.HzpiLAPiCS-MUY7_GUEh8xMyKQj7gjz-RsZPb6oTRaU
+
+### Get recommendations limited to 4
+GET http://localhost:8000/recommend
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzQzNjY4Nzg4fQ.NAXeutwJRWNA8-bEtzo0nK3pbrzLittzaCh5zb3EFl0

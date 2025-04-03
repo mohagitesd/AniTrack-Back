@@ -1,5 +1,6 @@
 import httpx
 
+
 ANILIST_API_URL = 'https://graphql.anilist.co'
 
 # 

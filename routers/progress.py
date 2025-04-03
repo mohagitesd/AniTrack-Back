@@ -5,6 +5,7 @@ from schemas.progress import ProgressCreate
 from core.database import get_session
 from core.security import get_current_user
 from models.user import User
+from services.anilist import get_work_details
 
 router = APIRouter(prefix="/user", tags=["progress"])
 
@@ -48,5 +49,29 @@ def delete_progress(progress_id: int, session: Session = Depends(get_session), u
     session.commit()
 
     return {"message": "Progression supprimée avec succès"}
+
+@router.get("/list")
+async def list_followed_works(
+    user: User = Depends(get_current_user),
+    session: Session = Depends(get_session)
+):
+    progresses = session.exec(
+        select(Progress).where(Progress.user_id == user.id)
+    ).all()
+
+    results = []
+    for progress in progresses:
+        try:
+            work_data = await get_work_details(int(progress.work_id))
+        except Exception as e:
+            work_data = {"error": f"Failed to fetch work {progress.work_id}"}
+        
+        results.append({
+            "work_id": progress.work_id,
+            "progress": progress.progress,
+            "work": work_data
+        })
+
+    return results
 
 
