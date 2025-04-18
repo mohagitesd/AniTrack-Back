@@ -16,7 +16,10 @@ router = APIRouter(prefix="/works", tags=["works"])
 
 @router.get("/all-works")
 async def get_all_works(max_pages: int = 5):
+    
+    
     all_works = []
+    
 
     query = """
     query ($page: Int, $perPage: Int) {
